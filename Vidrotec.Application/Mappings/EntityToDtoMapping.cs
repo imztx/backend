@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Vidrotec.Application.DTOs;
+using Vidrotec.Application.DTOs.Clientes;
+using Vidrotec.Application.DTOs.Estoque;
+using Vidrotec.Application.DTOs.Orcamentos;
+using Vidrotec.Application.DTOs.Agenda;
 using Vidrotec.Domain.Entities;
 using Vidrotec.Domain.Enums;
 
@@ -9,7 +12,7 @@ namespace Vidrotec.Application.Mappings
 {
     public static class EntityToDtoMapping
     {
-        public static ClienteDto ToDto(this Cliente entity) => new()
+        public static ClienteResponseDto ToDto(this Cliente entity) => new()
         {
             Id = entity.Id,
             Nome = entity.Nome,
@@ -18,7 +21,7 @@ namespace Vidrotec.Application.Mappings
             DataCadastro = entity.DataCadastro
         };
 
-        public static ProdutoDto ToDto(this Produto entity) => new()
+        public static ProdutoResponseDto ToDto(this Produto entity) => new()
         {
             Id = entity.Id,
             Nome = entity.Nome,
@@ -32,7 +35,7 @@ namespace Vidrotec.Application.Mappings
             DataCadastro = entity.DataCadastro
         };
 
-        public static OrcamentoDto ToDto(this Orcamento entity) => new()
+        public static OrcamentoResponseDto ToDto(this Orcamento entity) => new()
         {
             Id = entity.Id,
             NomeCliente = entity.NomeCliente,
@@ -43,7 +46,7 @@ namespace Vidrotec.Application.Mappings
             Itens = entity.Itens.Select(i => i.ToDto()).ToList()
         };
 
-        public static OrcamentoItemDto ToDto(this OrcamentoItem entity) => new()
+        public static OrcamentoItemResponseDto ToDto(this OrcamentoItem entity) => new()
         {
             Id = entity.Id,
             Descricao = entity.Descricao,
@@ -59,7 +62,7 @@ namespace Vidrotec.Application.Mappings
             Mola = entity.Mola
         };
 
-        public static AgendaServicoDto ToDto(this AgendaServico entity) => new()
+        public static AgendaResponseDto ToDto(this AgendaServico entity) => new()
         {
             Id = entity.Id,
             DataServico = entity.DataServico,

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vidrotec.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0ffcf3d84bc333c32d15af6d6c108e06c7d4725")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+827cb4ad2afefdb6e454414fadcf7e9b1ee327e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vidrotec.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vidrotec.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

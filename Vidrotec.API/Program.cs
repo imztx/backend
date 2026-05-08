@@ -8,8 +8,8 @@ using Vidrotec.API;
 using Vidrotec.Application.Interfaces;
 using Vidrotec.Application.Services.Implementations;
 using Vidrotec.Application.Services.Interfaces;
-using Vidrotec.Infrastructure;
-using Vidrotec.Infrastructure.Repositories;
+using Vidrotec.Infrastructure.Data;
+using Vidrotec.Infrastructure.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

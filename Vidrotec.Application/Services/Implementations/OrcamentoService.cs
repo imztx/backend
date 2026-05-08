@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Vidrotec.Application.DTOs;
+using Vidrotec.Application.DTOs.Clientes;
+using Vidrotec.Application.DTOs.Estoque;
+using Vidrotec.Application.DTOs.Orcamentos;
+using Vidrotec.Application.DTOs.Agenda;
 using Vidrotec.Application.Interfaces;
 using Vidrotec.Application.Mappings;
 using Vidrotec.Application.Services.Interfaces;
@@ -20,7 +23,7 @@ namespace Vidrotec.Application.Services.Implementations
             _clienteRepository = clienteRepository;
         }
 
-        public async Task<ClienteDto> CreateAsync(CreateClienteDto request)
+        public async Task<ClienteResponseDto> CreateAsync(ClienteCreateDto request)
         {
             var cliente = new Cliente(request.Nome, request.Telefone, request.Endereco);
             await _clienteRepository.AddAsync(cliente);
@@ -32,32 +35,32 @@ namespace Vidrotec.Application.Services.Implementations
             var cliente = await _clienteRepository.GetByIdAsync(id);
             if (cliente is null) return;
             cliente.SetExcluido();
-            _clienteRepository.Update(cliente);
+            await _clienteRepository.UpdateAsync(cliente);
         }
 
-        public async Task<IEnumerable<ClienteDto>> GetAllAsync()
+        public async Task<IEnumerable<ClienteResponseDto>> GetAllAsync()
         {
             var clientes = await _clienteRepository.GetAllActiveAsync();
             return clientes.Select(c => c.ToDto());
         }
 
-        public async Task<ClienteDto?> GetByIdAsync(Guid id)
+        public async Task<ClienteResponseDto?> GetByIdAsync(Guid id)
         {
             var cliente = await _clienteRepository.GetByIdAsync(id);
             if (cliente is null || cliente.Excluido) return null;
             return cliente.ToDto();
         }
 
-        public async Task<ClienteDto?> UpdateAsync(Guid id, UpdateClienteDto request)
+        public async Task<ClienteResponseDto?> UpdateAsync(Guid id, ClienteUpdateDto request)
         {
             var cliente = await _clienteRepository.GetByIdAsync(id);
             if (cliente is null || cliente.Excluido) return null;
             cliente.Update(request.Nome, request.Telefone, request.Endereco);
-            _clienteRepository.Update(cliente);
+            await _clienteRepository.UpdateAsync(cliente);
             return cliente.ToDto();
         }
 
-        public async Task<ClienteImportResultDto> ImportCsvAsync(ImportClienteCsvDto request)
+        public async Task<ClienteImportResultDto> ImportCsvAsync(ClienteImportacaoDto request)
         {
             var lines = request.CsvContent.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             var totalClientes = 0;
@@ -109,7 +112,7 @@ namespace Vidrotec.Application.Services.Implementations
             _movimentacaoRepository = movimentacaoRepository;
         }
 
-        public async Task<ProdutoDto> CreateAsync(CreateProdutoDto request)
+        public async Task<ProdutoResponseDto> CreateAsync(ProdutoCreateDto request)
         {
             var produto = new Produto(request.Nome, request.Codigo, request.Cor, request.Quantidade, request.QuantidadeMinima, request.ValorUnitario);
             await _produtoRepository.AddAsync(produto);
@@ -121,22 +124,22 @@ namespace Vidrotec.Application.Services.Implementations
             var produto = await _produtoRepository.GetByIdAsync(id);
             if (produto is null) return;
             produto.SetExcluido();
-            _produtoRepository.Update(produto);
+            await _produtoRepository.UpdateAsync(produto);
         }
 
-        public async Task<IEnumerable<ProdutoDto>> GetAllAsync()
+        public async Task<IEnumerable<ProdutoResponseDto>> GetAllAsync()
         {
             var produtos = await _produtoRepository.GetAllActiveAsync();
             return produtos.Select(p => p.ToDto());
         }
 
-        public async Task<IEnumerable<ProdutoDto>> GetReposicaoAsync()
+        public async Task<IEnumerable<ProdutoResponseDto>> GetReposicaoAsync()
         {
             var produtos = await _produtoRepository.GetReposicaoAsync();
             return produtos.Select(p => p.ToDto());
         }
 
-        public async Task<ProdutoDto?> UpdateAsync(Guid id, UpdateProdutoDto request)
+        public async Task<ProdutoResponseDto?> UpdateAsync(Guid id, ProdutoUpdateDto request)
         {
             var produto = await _produtoRepository.GetByIdAsync(id);
             if (produto is null || produto.Excluido) return null;
@@ -145,7 +148,7 @@ namespace Vidrotec.Application.Services.Implementations
             var valorAnterior = produto.ValorUnitario;
 
             produto.Update(request.Nome, request.Codigo, request.Cor, request.Quantidade, request.QuantidadeMinima, request.ValorUnitario);
-            _produtoRepository.Update(produto);
+            await _produtoRepository.UpdateAsync(produto);
 
             if (quantidadeAnterior != request.Quantidade || valorAnterior != request.ValorUnitario)
             {
@@ -171,7 +174,7 @@ namespace Vidrotec.Application.Services.Implementations
             _orcamentoRepository = orcamentoRepository;
         }
 
-        public async Task<OrcamentoDto> CreateAsync(CreateOrcamentoDto request)
+        public async Task<OrcamentoResponseDto> CreateAsync(OrcamentoCreateDto request)
         {
             var orcamento = new Orcamento(request.NomeCliente, request.Desconto);
             foreach (var itemDto in request.Itens)
@@ -189,10 +192,10 @@ namespace Vidrotec.Application.Services.Implementations
             var orcamento = await _orcamentoRepository.GetByIdAsync(id);
             if (orcamento is null) return;
             orcamento.SetExcluido();
-            _orcamentoRepository.Update(orcamento);
+            await _orcamentoRepository.UpdateAsync(orcamento);
         }
 
-        public async Task<IEnumerable<OrcamentoDto>> GetAllAsync()
+        public async Task<IEnumerable<OrcamentoResponseDto>> GetAllAsync()
         {
             var orcamentos = await _orcamentoRepository.GetAllActiveWithItensAsync();
             return orcamentos.Select(o => o.ToDto());
@@ -208,7 +211,7 @@ namespace Vidrotec.Application.Services.Implementations
             _agendaServicoRepository = agendaServicoRepository;
         }
 
-        public async Task<AgendaServicoDto> CreateAsync(CreateAgendaServicoDto request)
+        public async Task<AgendaResponseDto> CreateAsync(AgendaCreateDto request)
         {
             Enum.TryParse(request.Turno, true, out Turno turno);
             Enum.TryParse(request.Status, true, out AgendaStatus status);
@@ -217,13 +220,13 @@ namespace Vidrotec.Application.Services.Implementations
             return agenda.ToDto();
         }
 
-        public async Task<IEnumerable<AgendaServicoDto>> GetAllAsync()
+        public async Task<IEnumerable<AgendaResponseDto>> GetAllAsync()
         {
             var agenda = await _agendaServicoRepository.GetAllActiveAsync();
             return agenda.Select(a => a.ToDto());
         }
 
-        public async Task<IEnumerable<AgendaServicoDto>> GetByMonthAsync(int ano, int mes)
+        public async Task<IEnumerable<AgendaResponseDto>> GetByMonthAsync(int ano, int mes)
         {
             var agenda = await _agendaServicoRepository.GetByMonthAsync(ano, mes);
             return agenda.Select(a => a.ToDto());

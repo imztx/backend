@@ -1,9 +1,10 @@
+using System;
 using FluentValidation;
-using Vidrotec.Application.DTOs;
+using Vidrotec.Application.DTOs.Clientes;
 
 namespace Vidrotec.Application.Validators
 {
-    public class CreateClienteDtoValidator : AbstractValidator<CreateClienteDto>
+    public class CreateClienteDtoValidator : AbstractValidator<ClienteCreateDto>
     {
         public CreateClienteDtoValidator()
         {
@@ -13,7 +14,7 @@ namespace Vidrotec.Application.Validators
         }
     }
 
-    public class UpdateClienteDtoValidator : AbstractValidator<UpdateClienteDto>
+    public class UpdateClienteDtoValidator : AbstractValidator<ClienteUpdateDto>
     {
         public UpdateClienteDtoValidator()
         {

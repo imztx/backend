@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Vidrotec.Infrastructure;
+using Vidrotec.Infrastructure.Data;
 
 #nullable disable
 
-namespace Vidrotec.Infrastructure.Vidrotec.Infrastructure.Migrations
+namespace Vidrotec.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20260508193709_InitialCreate")]

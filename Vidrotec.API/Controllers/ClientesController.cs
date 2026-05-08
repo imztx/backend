@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Vidrotec.Application.DTOs;
+using Vidrotec.Application.DTOs.Clientes;
 using Vidrotec.Application.Services.Interfaces;
 
 namespace Vidrotec.API.Controllers
@@ -34,14 +34,14 @@ namespace Vidrotec.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateClienteDto request)
+        public async Task<IActionResult> Create(ClienteCreateDto request)
         {
             var cliente = await _clienteService.CreateAsync(request);
             return CreatedAtAction(nameof(GetById), new { id = cliente.Id }, cliente);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, UpdateClienteDto request)
+        public async Task<IActionResult> Update(Guid id, ClienteUpdateDto request)
         {
             var cliente = await _clienteService.UpdateAsync(id, request);
             return cliente is null ? NotFound() : Ok(cliente);
@@ -55,7 +55,7 @@ namespace Vidrotec.API.Controllers
         }
 
         [HttpPost("import")]
-        public async Task<IActionResult> ImportCsv(ImportClienteCsvDto request)
+        public async Task<IActionResult> ImportCsv(ClienteImportacaoDto request)
         {
             var result = await _clienteService.ImportCsvAsync(request);
             return Ok(result);

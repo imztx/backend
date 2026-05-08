@@ -1,9 +1,10 @@
+using System;
 using FluentValidation;
-using Vidrotec.Application.DTOs;
+using Vidrotec.Application.DTOs.Estoque;
 
 namespace Vidrotec.Application.Validators
 {
-    public class CreateProdutoDtoValidator : AbstractValidator<CreateProdutoDto>
+    public class CreateProdutoDtoValidator : AbstractValidator<ProdutoCreateDto>
     {
         public CreateProdutoDtoValidator()
         {
@@ -15,7 +16,7 @@ namespace Vidrotec.Application.Validators
         }
     }
 
-    public class UpdateProdutoDtoValidator : AbstractValidator<UpdateProdutoDto>
+    public class UpdateProdutoDtoValidator : AbstractValidator<ProdutoUpdateDto>
     {
         public UpdateProdutoDtoValidator()
         {

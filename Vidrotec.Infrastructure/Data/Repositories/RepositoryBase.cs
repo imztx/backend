@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Vidrotec.Application.Interfaces;
 
-namespace Vidrotec.Infrastructure.Repositories
+namespace Vidrotec.Infrastructure.Data.Repositories
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
@@ -23,10 +23,10 @@ namespace Vidrotec.Infrastructure.Repositories
             await Context.SaveChangesAsync();
         }
 
-        public virtual void Delete(T entity)
+        public virtual async Task DeleteAsync(T entity)
         {
             DbSet.Update(entity);
-            Context.SaveChanges();
+            await Context.SaveChangesAsync();
         }
 
         public virtual async Task<IEnumerable<T>> GetAllAsync()
@@ -39,10 +39,10 @@ namespace Vidrotec.Infrastructure.Repositories
             return await DbSet.FindAsync(id);
         }
 
-        public virtual void Update(T entity)
+        public virtual async Task UpdateAsync(T entity)
         {
             DbSet.Update(entity);
-            Context.SaveChanges();
+            await Context.SaveChangesAsync();
         }
     }
 }

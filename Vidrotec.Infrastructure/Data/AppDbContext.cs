@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Vidrotec.Domain.Entities;
 
-namespace Vidrotec.Infrastructure
+namespace Vidrotec.Infrastructure.Data
 {
     public class AppDbContext : DbContext
     {

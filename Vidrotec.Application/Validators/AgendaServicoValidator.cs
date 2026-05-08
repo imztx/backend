@@ -1,9 +1,10 @@
+using System;
 using FluentValidation;
-using Vidrotec.Application.DTOs;
+using Vidrotec.Application.DTOs.Agenda;
 
 namespace Vidrotec.Application.Validators
 {
-    public class CreateAgendaServicoDtoValidator : AbstractValidator<CreateAgendaServicoDto>
+    public class CreateAgendaServicoDtoValidator : AbstractValidator<AgendaCreateDto>
     {
         public CreateAgendaServicoDtoValidator()
         {

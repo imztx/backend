@@ -1,9 +1,10 @@
+using System;
 using FluentValidation;
-using Vidrotec.Application.DTOs;
+using Vidrotec.Application.DTOs.Orcamentos;
 
 namespace Vidrotec.Application.Validators
 {
-    public class CreateOrcamentoDtoValidator : AbstractValidator<CreateOrcamentoDto>
+    public class CreateOrcamentoDtoValidator : AbstractValidator<OrcamentoCreateDto>
     {
         public CreateOrcamentoDtoValidator()
         {
@@ -14,7 +15,7 @@ namespace Vidrotec.Application.Validators
         }
     }
 
-    public class CreateOrcamentoItemDtoValidator : AbstractValidator<CreateOrcamentoItemDto>
+    public class CreateOrcamentoItemDtoValidator : AbstractValidator<OrcamentoItemCreateDto>
     {
         public CreateOrcamentoItemDtoValidator()
         {

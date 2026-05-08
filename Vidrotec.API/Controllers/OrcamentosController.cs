@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Vidrotec.Application.DTOs;
+using Vidrotec.Application.DTOs.Orcamentos;
 using Vidrotec.Application.Services.Interfaces;
 
 namespace Vidrotec.API.Controllers
@@ -27,7 +27,7 @@ namespace Vidrotec.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateOrcamentoDto request)
+        public async Task<IActionResult> Create(OrcamentoCreateDto request)
         {
             var orcamento = await _orcamentoService.CreateAsync(request);
             return CreatedAtAction(nameof(GetAll), new { id = orcamento.Id }, orcamento);

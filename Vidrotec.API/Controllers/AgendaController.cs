@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Vidrotec.Application.DTOs;
+using Vidrotec.Application.DTOs.Agenda;
 using Vidrotec.Application.Services.Interfaces;
 
 namespace Vidrotec.API.Controllers
@@ -33,7 +33,7 @@ namespace Vidrotec.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateAgendaServicoDto request)
+        public async Task<IActionResult> Create(AgendaCreateDto request)
         {
             var agenda = await _agendaService.CreateAsync(request);
             return CreatedAtAction(nameof(GetByMonth), new { ano = agenda.DataServico.Year, mes = agenda.DataServico.Month }, agenda);
