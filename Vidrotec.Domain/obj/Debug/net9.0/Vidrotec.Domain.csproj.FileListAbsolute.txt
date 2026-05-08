@@ -1,0 +1,12 @@
+/workspaces/backend/Vidrotec.Domain/obj/Debug/net9.0/Vidrotec.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/backend/Vidrotec.Domain/obj/Debug/net9.0/Vidrotec.Domain.AssemblyInfoInputs.cache
+/workspaces/backend/Vidrotec.Domain/obj/Debug/net9.0/Vidrotec.Domain.AssemblyInfo.cs
+/workspaces/backend/Vidrotec.Domain/obj/Debug/net9.0/Vidrotec.Domain.csproj.CoreCompileInputs.cache
+/workspaces/backend/Vidrotec.Domain/obj/Debug/net9.0/Vidrotec.Domain.sourcelink.json
+/workspaces/backend/Vidrotec.Domain/bin/Debug/net9.0/Vidrotec.Domain.deps.json
+/workspaces/backend/Vidrotec.Domain/bin/Debug/net9.0/Vidrotec.Domain.dll
+/workspaces/backend/Vidrotec.Domain/bin/Debug/net9.0/Vidrotec.Domain.pdb
+/workspaces/backend/Vidrotec.Domain/obj/Debug/net9.0/Vidrotec.Domain.dll
+/workspaces/backend/Vidrotec.Domain/obj/Debug/net9.0/refint/Vidrotec.Domain.dll
+/workspaces/backend/Vidrotec.Domain/obj/Debug/net9.0/Vidrotec.Domain.pdb
+/workspaces/backend/Vidrotec.Domain/obj/Debug/net9.0/ref/Vidrotec.Domain.dll

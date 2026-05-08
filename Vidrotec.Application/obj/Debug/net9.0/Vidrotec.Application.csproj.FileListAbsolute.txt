@@ -1,0 +1,16 @@
+/workspaces/backend/Vidrotec.Application/obj/Debug/net9.0/Vidrotec.Application.csproj.AssemblyReference.cache
+/workspaces/backend/Vidrotec.Application/obj/Debug/net9.0/Vidrotec.Application.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/backend/Vidrotec.Application/obj/Debug/net9.0/Vidrotec.Application.AssemblyInfoInputs.cache
+/workspaces/backend/Vidrotec.Application/obj/Debug/net9.0/Vidrotec.Application.AssemblyInfo.cs
+/workspaces/backend/Vidrotec.Application/obj/Debug/net9.0/Vidrotec.Application.csproj.CoreCompileInputs.cache
+/workspaces/backend/Vidrotec.Application/obj/Debug/net9.0/Vidrotec.Application.sourcelink.json
+/workspaces/backend/Vidrotec.Application/bin/Debug/net9.0/Vidrotec.Application.deps.json
+/workspaces/backend/Vidrotec.Application/bin/Debug/net9.0/Vidrotec.Application.dll
+/workspaces/backend/Vidrotec.Application/bin/Debug/net9.0/Vidrotec.Application.pdb
+/workspaces/backend/Vidrotec.Application/bin/Debug/net9.0/Vidrotec.Domain.dll
+/workspaces/backend/Vidrotec.Application/bin/Debug/net9.0/Vidrotec.Domain.pdb
+/workspaces/backend/Vidrotec.Application/obj/Debug/net9.0/Vidrotec.EDCAC23C.Up2Date
+/workspaces/backend/Vidrotec.Application/obj/Debug/net9.0/Vidrotec.Application.dll
+/workspaces/backend/Vidrotec.Application/obj/Debug/net9.0/refint/Vidrotec.Application.dll
+/workspaces/backend/Vidrotec.Application/obj/Debug/net9.0/Vidrotec.Application.pdb
+/workspaces/backend/Vidrotec.Application/obj/Debug/net9.0/ref/Vidrotec.Application.dll
